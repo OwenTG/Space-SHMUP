@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     public float health = 10;
     public int score = 100; //Points earned for destroying this
 
-    private BoundsCheck bndCheck;
+    protected BoundsCheck bndCheck;
 
     void Awake()
     {
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     {
         Move();
 
-        if (bndCheck != null && !bndCheck.isOnScreen)
+        if (bndCheck != null && bndCheck.offDown)
         {
             //Check to make sure it's gone off the bottom of the screen
             if(pos.y<bndCheck.camHeight - bndCheck.radius)
